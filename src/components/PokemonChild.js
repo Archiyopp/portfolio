@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { isCompositeComponent } from "react-dom/test-utils";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const url = `https://pokeapi.co/api/v2/pokemon/`;
@@ -7,6 +6,7 @@ function PokemonChild() {
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState([]);
   const [error, setError] = useState(false);
+  const buttonRef = useRef(null);
   let { name } = useParams();
 
   useEffect(() => {
@@ -45,7 +45,6 @@ function PokemonChild() {
             base_experience,
           };
           setPokemon(newPokemon);
-          console.log(newPokemon.types);
         }
       } catch (error) {
         console.log(error);
@@ -61,17 +60,24 @@ function PokemonChild() {
       setPokemon([]);
     }
     setLoading(false);
+    document.title = `${name} | Cristian Fernandez`;
   }, [name]);
 
-  if (loading) {
-    return <div className="loader"></div>;
-  }
+  useEffect(() => {
+    buttonRef.current.focus();
+  }, []);
+
   return (
     <main>
       <section className="section pokemon-section">
-        <Link to="/projects/pokemon" className="poke-link">
+        <Link
+          to="/projects/pokemon"
+          className="poke-link"
+          ref={buttonRef}
+        >
           Pokemon Database
         </Link>
+        {loading && <div className="loader"></div>}
         {(pokemon.name && <h2 className="title">{name}</h2>) ||
           (error && <h2 className="title">No pokemon found</h2>)}
         {pokemon.name && (
