@@ -60,12 +60,13 @@ function PokemonChild() {
       setPokemon([]);
     }
     setLoading(false);
-    document.title = `${name} | Cristian Fernandez`;
+    document.title = `${
+      name.charAt(0).toUpperCase() + name.slice(1)
+    } | Cristian Fernandez`;
   }, [name]);
-
   useEffect(() => {
     buttonRef.current.focus();
-  }, []);
+  }, [error]);
 
   return (
     <main>
@@ -102,7 +103,11 @@ function PokemonChild() {
                 <span>Types: </span>
                 {pokemon.types.map((item, index) => {
                   const type = item.type;
-                  return <span className="type">{type.name}</span>;
+                  return (
+                    <span className="type" key={index}>
+                      {type.name}
+                    </span>
+                  );
                 })}
               </p>
               <p>
