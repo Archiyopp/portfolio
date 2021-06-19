@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { isCompositeComponent } from "react-dom/test-utils";
 import { useParams, Link } from "react-router-dom";
 
 const url = `https://pokeapi.co/api/v2/pokemon/`;
@@ -44,6 +45,7 @@ function PokemonChild() {
             base_experience,
           };
           setPokemon(newPokemon);
+          console.log(newPokemon.types);
         }
       } catch (error) {
         console.log(error);
@@ -92,6 +94,10 @@ function PokemonChild() {
               </p>
               <p>
                 <span>Types: </span>
+                {pokemon.types.map((item, index) => {
+                  const type = item.type;
+                  return <span className="type">{type.name}</span>;
+                })}
               </p>
               <p>
                 <span>Ability: </span>
