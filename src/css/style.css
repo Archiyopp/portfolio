@@ -358,6 +358,28 @@ p .unit {
   box-shadow: 2px -2px 4px #2a65d1;
 }
 
+.error-link {
+  position: relative;
+  font-size: 1.2rem;
+  background: #43e673;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--clr-primary-4);
+  border-radius: 0.3rem;
+  transition: var(--transition);
+  box-shadow: 0px 0px 0px 2px #2a65d1;
+  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #020202;
+  display: block;
+  z-index: 1;
+}
+
+.error-link:hover {
+  background: #43e673;
+  box-shadow: 0px 0px 2px 4px #0c49b9;
+  transition: var(--transition);
+}
+
 p span {
   margin-right: 0.5rem;
   background: var(--clr-primary-2);
@@ -430,9 +452,10 @@ p .type {
   display: block;
 }
 .link:hover {
-  color: var(--clr-grey-7);
+  color: var(--clr-grey-10);
   transition: var(--transition);
   background: var(--clr-primary-4);
+  box-shadow: 0px 0px 3px 5px #0c50cf;
 }
 .title {
   margin: 2rem auto;

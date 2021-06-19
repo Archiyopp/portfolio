@@ -9,11 +9,9 @@ export default function Error() {
     <main>
       <section className="section">
         <h2 className="title">Oops! There is no page here!</h2>
-        <button className="btn">
-          <Link className="link" to="/">
-            Back Home
-          </Link>
-        </button>
+        <Link className="link" to="/">
+          Back Home
+        </Link>
       </section>
     </main>
   );
