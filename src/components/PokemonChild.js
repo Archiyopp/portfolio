@@ -5,46 +5,52 @@ const url = `https://pokeapi.co/api/v2/pokemon/`;
 function PokemonChild() {
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState([]);
+  const [error, setError] = useState(false);
   let { name } = useParams();
 
   useEffect(() => {
     setLoading(true);
     const fetchPokemon = async () => {
-      const response = await fetch(`${url}${name}`);
-      const pokemon = await response.json();
-      if (pokemon.name) {
-        const {
-          sprites: {
-            other: {
-              "official-artwork": { front_default },
+      try {
+        const response = await fetch(`${url}${name}`);
+        const pokemon = await response.json();
+        if (pokemon.name) {
+          const {
+            sprites: {
+              other: {
+                "official-artwork": { front_default },
+              },
             },
-          },
-          height,
-          weight,
-          abilities: [
-            {
-              ability: { name },
-            },
-            {
-              ability: { name: hiddenname },
-            },
-          ],
-          types,
-          base_experience,
-        } = pokemon;
-        const newPokemon = {
-          img: front_default,
-          height,
-          weight,
-          name,
-          hiddenname,
-          types,
-          base_experience,
-        };
-        setPokemon(newPokemon);
-        console.log(pokemon);
+            height,
+            weight,
+            abilities: [
+              {
+                ability: { name },
+              },
+              {
+                ability: { name: hiddenname },
+              },
+            ],
+            types,
+            base_experience,
+          } = pokemon;
+          const newPokemon = {
+            img: front_default,
+            height,
+            weight,
+            name,
+            hiddenname,
+            types,
+            base_experience,
+          };
+          setPokemon(newPokemon);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+        setError(true);
       }
-      setLoading(false);
     };
     fetchPokemon();
   }, [name]);
@@ -52,8 +58,15 @@ function PokemonChild() {
   if (loading) {
     return <div className="loader"></div>;
   }
-  if (!pokemon) {
-    return <h2 className="title">No pokemon to display</h2>;
+  if (error) {
+    return (
+      <section className="section">
+        <h2 className="title">No pokemon to display</h2>;
+        <Link to="/projects/pokemon" className="poke-link">
+          Pokemon Database
+        </Link>
+      </section>
+    );
   }
   return (
     <main>
