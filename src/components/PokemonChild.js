@@ -45,28 +45,24 @@ function PokemonChild() {
           };
           setPokemon(newPokemon);
         }
-        setLoading(false);
       } catch (error) {
         console.log(error);
-        setLoading(false);
         setError(true);
       }
+      setLoading(false);
     };
-    fetchPokemon();
+    try {
+      fetchPokemon();
+    } catch (error) {
+      setError(true);
+      console.log(error);
+      setPokemon([]);
+    }
+    setLoading(false);
   }, [name]);
 
   if (loading) {
     return <div className="loader"></div>;
-  }
-  if (error) {
-    return (
-      <section className="section">
-        <h2 className="title">No pokemon to display</h2>;
-        <Link to="/projects/pokemon" className="poke-link">
-          Pokemon Database
-        </Link>
-      </section>
-    );
   }
   return (
     <main>
@@ -74,51 +70,44 @@ function PokemonChild() {
         <Link to="/projects/pokemon" className="poke-link">
           Pokemon Database
         </Link>
-        <h2 className="title">{name}</h2>
-        <article className="poke-child">
-          <img src={pokemon.img} alt={name} />
-          <div className="poke-info">
-            <p>
-              <span>Name: </span>
-              {name}
-            </p>
-            <p>
-              <span>Height: </span>
-              {(pokemon.height * 10).toFixed(1)}
-              <span className="unit"> cm</span>
-            </p>
-            <p>
-              <span>Weight: </span>
-              {(pokemon.weight * 0.1).toFixed(1)}
-              <span className="unit"> kg</span>
-            </p>
-            <p>
-              <span>Types: </span>
-              {pokemon.types.map((item, index) => {
-                const {
-                  type: { name },
-                } = item;
-                return (
-                  <span className="type" key={index}>
-                    {name}
-                  </span>
-                );
-              })}
-            </p>
-            <p>
-              <span>Ability: </span>
-              {pokemon.name}
-            </p>
-            <p>
-              <span>Hidden Ability: </span>
-              {pokemon.hiddenname}
-            </p>
-            <p>
-              <span>Base Experience: </span>
-              {pokemon.base_experience}
-            </p>
-          </div>
-        </article>
+        {(pokemon.name && <h2 className="title">{name}</h2>) ||
+          (error && <h2 className="title">No pokemon found</h2>)}
+        {pokemon.name && (
+          <article className="poke-child">
+            <img src={pokemon.img} alt={name} />
+            <div className="poke-info">
+              <p>
+                <span>Name: </span>
+                {name}
+              </p>
+              <p>
+                <span>Height: </span>
+                {(pokemon.height * 10).toFixed(1)}
+                <span className="unit"> cm</span>
+              </p>
+              <p>
+                <span>Weight: </span>
+                {(pokemon.weight * 0.1).toFixed(1)}
+                <span className="unit"> kg</span>
+              </p>
+              <p>
+                <span>Types: </span>
+              </p>
+              <p>
+                <span>Ability: </span>
+                {pokemon.name}
+              </p>
+              <p>
+                <span>Hidden Ability: </span>
+                {pokemon.hiddenname}
+              </p>
+              <p>
+                <span>Base Experience: </span>
+                {pokemon.base_experience}
+              </p>
+            </div>
+          </article>
+        )}
       </section>
     </main>
   );
