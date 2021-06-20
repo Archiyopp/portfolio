@@ -29,7 +29,11 @@ export default function Pagination() {
   };
   return (
     <div className="btn-container">
-      <button onClick={prevPage} className="prev-btn">
+      <button
+        onClick={prevPage}
+        className="prev-btn"
+        aria-label="previous page"
+      >
         <FaArrowLeft />
       </button>
       {buttons.map((number) => {
@@ -43,12 +47,17 @@ export default function Pagination() {
               setOffset(number * 50 - 50);
               setSearch(`?limit=50&offset=${number * 50 - 50}`);
             }}
+            aria-label={`page number ${number}`}
           >
             {number}
           </button>
         );
       })}
-      <button onClick={nextPage} className="next-btn">
+      <button
+        onClick={nextPage}
+        className="next-btn"
+        aria-label="next page"
+      >
         <FaArrowRight />
       </button>
     </div>
