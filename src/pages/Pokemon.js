@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "../context";
-import PokemonThumbnail from "../components/PokemonThumbnail";
 import Searchform from "../components/Searchform";
 import Pagination from "../components/pagination";
+import PokemonList from "../components/PokemonList";
 
 export default function Pokemon() {
   const { loading, pokemon, error } = useGlobalContext();
@@ -22,15 +22,7 @@ export default function Pokemon() {
           </h3>
         </section>
       )}
-      {pokemon.length > 0 && (
-        <section>
-          <div className="pokemon-list">
-            {pokemon.map((item, index) => {
-              return <PokemonThumbnail key={index} {...item} />;
-            })}
-          </div>
-        </section>
-      )}
+      {pokemon.length > 0 && <PokemonList />}
       <Pagination />
     </main>
   );

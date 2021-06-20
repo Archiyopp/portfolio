@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function PokemonThumbnail({ name }) {
+const PokemonThumbnail = React.memo(({ name }) => {
   return (
     <article className="pokemon">
       <div style={{ margin: "0 auto" }}>
@@ -22,6 +22,6 @@ function PokemonThumbnail({ name }) {
       </div>
     </article>
   );
-}
+});
 
 export default PokemonThumbnail;
