@@ -7,7 +7,7 @@ function PokemonThumbnail({ name }) {
       <div style={{ margin: "0 auto" }}>
         <img
           className="pokemon-img"
-          src={`https://img.pokemondb.net/artwork/large/${name}.jpg`}
+          src={`https://img.pokemondb.net/sprites/home/normal/${name}.png`}
           alt={`${name} artwork`}
         />
       </div>

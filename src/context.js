@@ -7,7 +7,7 @@ const url = "https://pokeapi.co/api/v2/pokemon/";
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("?limit=50");
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
 
@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (parseInt(value) === 0 || parseInt(value) > 898) {
-      setSearch("");
+      setSearch("?limit=50");
       setError(true);
     } else {
       setError(false);

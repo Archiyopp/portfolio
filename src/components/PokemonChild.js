@@ -125,6 +125,12 @@ function PokemonChild() {
             </div>
           </article>
         )}
+        <a
+          className="external-link"
+          href={`http://pokemondb.net/pokedex/${name}`}
+        >
+          Search for the pokemon in another database
+        </a>
       </section>
     </main>
   );
