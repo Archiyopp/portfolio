@@ -4,9 +4,6 @@ import { useGlobalContext } from "../context";
 
 const PokemonList = () => {
   const { pokemon } = useGlobalContext();
-  React.useEffect(() => {
-    console.log("pokemonList called");
-  }, []);
   return (
     <section>
       <div className="pokemon-list">
