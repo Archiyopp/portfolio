@@ -20,6 +20,8 @@ const AppProvider = ({ children }) => {
     if (parseInt(value) === 0 || parseInt(value) > 898) {
       setSearch("?limit=50");
       setError(true);
+    } else if (value === "") {
+      setSearch("?limit=50");
     } else {
       setError(false);
       setSearch(value.toLowerCase());
@@ -65,6 +67,8 @@ const AppProvider = ({ children }) => {
         handleSubmit,
         error,
         pokemon,
+        setSearch,
+        search,
       }}
     >
       {children}

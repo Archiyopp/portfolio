@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useGlobalContext } from "../context";
 import PokemonThumbnail from "../components/PokemonThumbnail";
 import Searchform from "../components/Searchform";
+import Pagination from "../components/pagination";
 
 export default function Pokemon() {
   const { loading, pokemon, error } = useGlobalContext();
@@ -30,6 +31,7 @@ export default function Pokemon() {
           </div>
         </section>
       )}
+      <Pagination />
     </main>
   );
 }
