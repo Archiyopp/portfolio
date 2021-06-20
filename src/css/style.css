@@ -323,6 +323,7 @@ nav {
   text-shadow: 2px 2px 4px #020202;
   display: block;
   z-index: 1;
+  margin-top: 0.3rem;
 }
 
 .poke-link::before {
@@ -355,7 +356,7 @@ p .unit {
   opacity: 1;
 }
 .poke-link:hover {
-  box-shadow: 2px -2px 4px #2a65d1;
+  box-shadow: 2px 2px 4px #2a65d1;
 }
 
 p span {
