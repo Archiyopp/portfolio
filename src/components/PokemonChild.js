@@ -24,14 +24,7 @@ function PokemonChild() {
             },
             height,
             weight,
-            abilities: [
-              {
-                ability: { name },
-              },
-              {
-                ability: { name: hiddenname },
-              },
-            ],
+            abilities,
             types,
             base_experience,
           } = pokemon;
@@ -40,9 +33,9 @@ function PokemonChild() {
             height,
             weight,
             name,
-            hiddenname,
             types,
             base_experience,
+            abilities,
           };
           setPokemon(newPokemon);
         }
@@ -112,11 +105,12 @@ function PokemonChild() {
               </p>
               <p>
                 <span>Ability: </span>
-                {pokemon.name}
+                {pokemon.abilities[0].ability.name}
               </p>
               <p>
                 <span>Hidden Ability: </span>
-                {pokemon.hiddenname}
+                {pokemon.abilities[1] &&
+                  pokemon.abilities[1].ability.name}
               </p>
               <p>
                 <span>Base Experience: </span>
