@@ -36,7 +36,9 @@ export default function Pagination() {
         return (
           <button
             key={number}
-            className="page-btn"
+            className={`page-btn ${
+              offset === number * 50 - 50 ? "active-btn" : null
+            }`}
             onClick={() => {
               setOffset(number * 50 - 50);
               setSearch(`?limit=50&offset=${number * 50 - 50}`);
