@@ -1,5 +1,6 @@
 import React from "react";
 import photo from "../selfie1.webp";
+import photo2 from "../selfie2.webp";
 
 function Home() {
   React.useEffect(() => {
@@ -10,13 +11,14 @@ function Home() {
       <section className="section">
         <h1 className="title">Hi, I'm Cristian Fernandez</h1>
         <div className="description">
-          <div className="image-container">
+          <picture className="image-container">
+            <source media="(max-width: 799px)" srcSet={photo2} />
             <img
               src={photo}
               alt="Cristian Fernandez"
               className="photo"
             />
-          </div>
+          </picture>
           <p>
             I'm a geologist from Colombia and I'm just beginning my
             career in web development. I'm currently learning
