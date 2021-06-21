@@ -306,12 +306,20 @@ nav {
   max-width: var(--fullWidth);
   display: grid;
   row-gap: 2rem;
-  column-gap: 2rem;
+  column-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   /* align-items: start; */
 }
-@media screen and (min-width: 380px) {
+.poke-footer-name {
+  font-size: 1rem;
+}
+@media screen and (min-width: 450px) {
   .pokemon-list {
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  .poke-footer-name {
+    font-size: 1.2rem;
   }
 }
 
@@ -352,28 +360,6 @@ nav {
   text-transform: capitalize;
   line-height: 1.8;
   font-size: 1rem;
-}
-.poke-link {
-  position: relative;
-  font-size: 1.2rem;
-  background: rgb(237, 128, 255);
-  background: linear-gradient(
-    45deg,
-    rgba(237, 128, 255, 1) 10%,
-    rgba(0, 212, 255, 1) 50%,
-    rgba(178, 255, 114, 1) 90%
-  );
-  padding: 0.3rem 0.8rem;
-  border: 2px solid var(--clr-primary-4);
-  border-radius: 0.3rem;
-  transition: var(--transition);
-  box-shadow: -2px 2px 4px #2a65d1;
-  cursor: pointer;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #020202;
-  display: block;
-  z-index: 1;
-  margin-top: 0.3rem;
 }
 
 .poke-link::before {
@@ -586,5 +572,34 @@ p .type {
   40% {
     box-shadow: 0 -2em;
     height: 5em;
+  }
+}
+
+.poke-link {
+  position: relative;
+  font-size: 0.9rem;
+  background: rgb(237, 128, 255);
+  background: linear-gradient(
+    45deg,
+    rgba(237, 128, 255, 1) 10%,
+    rgba(0, 212, 255, 1) 50%,
+    rgba(178, 255, 114, 1) 90%
+  );
+  padding: 0.3rem 0.8rem;
+  border: 2px solid var(--clr-primary-4);
+  border-radius: 0.3rem;
+  transition: var(--transition);
+  box-shadow: -2px 2px 4px #2a65d1;
+  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #020202;
+  display: block;
+  z-index: 1;
+  margin-top: 0.3rem;
+}
+
+@media screen and (min-width: 400px) {
+  .poke-link {
+    font-size: 1.1rem;
   }
 }

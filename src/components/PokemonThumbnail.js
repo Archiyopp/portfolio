@@ -12,11 +12,8 @@ const PokemonThumbnail = React.memo(({ name }) => {
         />
       </div>
       <div className="poke-footer">
-        <h3>{name}</h3>
-        <Link
-          to={`/projects/pokemon/${name}`}
-          className="link poke-link"
-        >
+        <h2 className="poke-footer-name">{name}</h2>
+        <Link to={`/projects/pokemon/${name}`} className="poke-link">
           View Details
         </Link>
       </div>

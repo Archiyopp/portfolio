@@ -9,7 +9,7 @@ function Searchform() {
   }, [search]);
   return (
     <section className="section search">
-      <h2 className="title">Pokemon Database</h2>
+      <h1 className="title">Pokemon Database</h1>
       <form onSubmit={handleSubmit} className="search-form">
         <div className="form-control">
           <label htmlFor="pokemon">Search Pokemon: </label>
