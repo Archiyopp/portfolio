@@ -25,10 +25,10 @@ export default function About() {
         </p>
         <p>
           Right now I know Python, Javascript, HTML and CSS, being
-          Python my most proficient language. And I have an interest
-          in learning Typescript in the future, when I get more
+          Python my most proficient language, and I have an interest
+          in learning Typescript in the future when I get more
           proficient with Javascript. As for frameworks, I've been
-          learning React, Tailwind Css and a bit of Bootstrap, and I
+          learning React, Tailwind CSS and a bit of Bootstrap, and I
           have an interest in Svelte, Chakra UI, and Next.js which I
           will probably try after I get proficient in React and its
           surrounding libraries.

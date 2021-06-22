@@ -5,6 +5,13 @@ import {
   FaTwitter,
   FaGithub,
 } from "react-icons/fa";
+import {
+  IoLogoJavascript,
+  IoLogoPython,
+  IoLogoReact,
+  IoLogoHtml5,
+  IoLogoCss3,
+} from "react-icons/io5";
 export const links = [
   {
     id: 1,
@@ -52,5 +59,32 @@ export const social = [
     url: "https://github.com/Archiyopp",
     icon: <FaGithub />,
     label: "Github link",
+  },
+];
+
+export const abilities = [
+  {
+    skill: "HTML",
+    icon: <IoLogoHtml5 aria-label="logo" />,
+    label: "logo",
+  },
+  {
+    skill: "CSS",
+    icon: <IoLogoCss3 aria-label="logo" />,
+    label: "logo",
+  },
+  {
+    skill: "Javascript",
+    icon: <IoLogoJavascript aria-label="logo" />,
+    label: "logo",
+  },
+  {
+    skill: "Python",
+    icon: <IoLogoPython aria-label="logo" />,
+    label: "logo",
+  },
+  {
+    skill: "React",
+    icon: <IoLogoReact aria-label="logo" />,
   },
 ];

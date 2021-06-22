@@ -3,6 +3,7 @@ import photo from "../selfie1.webp";
 import photo11 from "../selfie1j.jpg";
 import photo22 from "../selfie2j.jpg";
 import photo2 from "../selfie2.webp";
+import Technologies from "../components/technologies";
 
 function Home() {
   React.useEffect(() => {
@@ -40,6 +41,10 @@ function Home() {
             development.
           </p>
         </div>
+      </section>
+      <section className="section">
+        <h2>Technologies</h2>
+        <Technologies />
       </section>
     </main>
   );
