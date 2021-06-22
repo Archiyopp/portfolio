@@ -43,7 +43,7 @@ export const social = [
   },
   {
     id: 3,
-    url: "https://www.linkedin.com/in/cristian-bermudez-a85248115/",
+    url: "https://www.linkedin.com/in/cristian-andres-fernandez-bermudez/",
     icon: <FaLinkedin />,
     label: "Linkedin link",
   },
