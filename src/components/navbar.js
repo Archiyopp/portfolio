@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { links, social } from "../data";
-import { Link } from "react-router-dom";
+import { NavLink as Link } from "react-router-dom";
 import logo from "../logo.svg";
 
 const Navbar = () => {
@@ -10,8 +10,7 @@ const Navbar = () => {
   const linksRef = useRef(null);
 
   useEffect(() => {
-    const linksHeight =
-      linksRef.current.getBoundingClientRect().height;
+    const linksHeight = linksRef.current.getBoundingClientRect().height;
     if (showLinks) {
       linksContainerRef.current.style.height = `${linksHeight}px`;
     } else {
@@ -39,7 +38,9 @@ const Navbar = () => {
               const { id, url, text } = link;
               return (
                 <li key={id}>
-                  <Link to={url}>{text}</Link>
+                  <Link to={url} exact>
+                    {text}
+                  </Link>
                 </li>
               );
             })}

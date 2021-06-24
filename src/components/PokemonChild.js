@@ -64,11 +64,7 @@ function PokemonChild() {
   return (
     <main>
       <section className="section pokemon-section">
-        <Link
-          to="/projects/pokemon"
-          className="poke-link"
-          ref={buttonRef}
-        >
+        <Link to="/projects/pokemon" className="poke-link" ref={buttonRef}>
           Pokemon Database
         </Link>
         {loading && <div className="loader"></div>}
@@ -109,8 +105,7 @@ function PokemonChild() {
               </p>
               <p>
                 <span>Hidden Ability: </span>
-                {pokemon.abilities[1] &&
-                  pokemon.abilities[1].ability.name}
+                {pokemon.abilities[1] && pokemon.abilities[1].ability.name}
               </p>
               <p>
                 <span>Base Experience: </span>

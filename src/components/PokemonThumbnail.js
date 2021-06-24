@@ -10,6 +10,8 @@ const PokemonThumbnail = React.memo(({ name }) => {
           src={`https://img.pokemondb.net/sprites/home/normal/${name}.png`}
           alt={`${name} artwork`}
           loading="lazy"
+          height="128"
+          width="128"
         />
       </div>
       <div className="poke-footer">
